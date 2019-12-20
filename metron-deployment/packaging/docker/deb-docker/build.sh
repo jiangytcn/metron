@@ -33,7 +33,7 @@ mkdir -p "${WORKDIR}"
 cd "${WORKDIR}"
 
 # for each metron tarball...
-for TARBALL in metron*.tar.gz; do
+for TARBALL in *.tar.gz; do
 
     export PACKAGE=`echo ${TARBALL} | awk -F"-${FULL_VERSION}-" '{print $1}'`
     if [ "${PACKAGE}" = "metron-pcap-backend" ]; then

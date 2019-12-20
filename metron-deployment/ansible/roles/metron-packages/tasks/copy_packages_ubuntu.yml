@@ -29,3 +29,11 @@
     mode: 0755
   with_fileglob:
     - "{{ metron_deb_glob }}"
+
+- name: Add apt config
+  template:
+    src: 101apt-force
+    dest: /etc/apt/apt.conf.d/101apt-force
+    owner: root
+    group: root
+    mode: '0644'
