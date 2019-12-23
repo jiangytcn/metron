@@ -15,18 +15,8 @@
 #  limitations under the License.
 #
 ---
-- name: Install tooling on Ubuntu
-  package:
-    name: dpkg-dev
-    state: present
-
-- name: Create repository index directory on Ubuntu
-  file:
-    path: "{{ repo_path }}/dists/METRON/main/binary-amd64"
-    state: directory
-    mode: 0755
-
-- name: Create repository index on Ubuntu
-  shell: "dpkg-scanpackages . /dev/null | gzip -9c > dists/METRON/main/binary-amd64/Packages.gz"
+- name: Install Node.js repo on Ubuntu 14
+  shell: curl -sL https://deb.nodesource.com/setup_10.x | bash -
   args:
-    chdir: "{{ repo_path }}"
+    warn: false
+  become: true

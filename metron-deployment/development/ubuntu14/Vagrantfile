@@ -53,8 +53,9 @@ hosts = [{
 Vagrant.configure(2) do |config|
 
   # host runs ubuntu
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
   config.ssh.insert_key = true
+  config.disksize.size = "80GB"
 
   # enable the hostmanager plugin
   config.hostmanager.enabled = true
